@@ -1,0 +1,46 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/homefilled"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/nav_dashboard"
+        android:icon="@drawable/ic_dash"
+        android:title="Dashboard" />
+
+    <item
+        android:id="@+id/nav_inbox"
+        android:icon="@drawable/ic_inbox"
+        android:title="Inbox" />
+
+    <item
+        android:id="@+id/nav_broadcast"
+        android:icon="@drawable/ic_broadcast"
+        android:title="Broadcast" />
+
+    <item
+        android:id="@+id/nav_contacts"
+        android:icon="@drawable/ic_contacts"
+        android:title="Contacts" />
+
+    <item
+        android:id="@+id/nav_template"
+        android:icon="@drawable/ic_template"
+        android:title="Template" />
+
+    <item
+        android:id="@+id/nav_media_library"
+        android:icon="@drawable/ic_media_library"
+        android:title="Media Library" />
+
+    <item
+        android:id="@+id/nav_quotation_invoice"
+        android:icon="@drawable/ic_quotation_invoice"
+        android:title="Quotation &amp; Invoice" />
+
+    <item
+        android:id="@+id/nav_chatbot_automation"
+        android:icon="@drawable/ic_chatbot_automation"
+        android:title="Chatbot/Automation" />
+</menu>

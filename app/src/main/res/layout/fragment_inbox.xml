@@ -1,0 +1,1226 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/mainbg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Top Bar inside CardView -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/top_bar_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/white"
+            android:elevation="5dp"
+            android:padding="16dp"
+            app:cardCornerRadius="8dp">
+
+            <RelativeLayout
+                android:id="@+id/top_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp">
+
+                <ImageView
+                    android:id="@+id/icon"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/nav" />
+
+                <ImageView
+                    android:id="@+id/home_icon"
+                    android:layout_width="28dp"
+                    android:layout_height="22dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@id/icon"
+                    android:src="@drawable/inbox" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="16dp"
+                    android:layout_toEndOf="@id/home_icon"
+                    android:fontFamily="@font/urbanist_variable"
+                    android:text="Inbox"
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
+
+                <ImageView
+                    android:id="@+id/profile_pic"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/profile_circle"
+                    android:src="@drawable/profile_picture" />
+
+                <ImageView
+                    android:id="@+id/notification_icon"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="8dp"
+                    android:layout_toStartOf="@id/profile_pic"
+                    android:src="@drawable/notifications" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Buttons: My Chats, Filter, New inside CardView -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/top_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/white"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:elevation="5dp"
+            app:cardCornerRadius="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:orientation="horizontal"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:paddingStart="8dp"
+
+                >
+
+
+                <!-- My Chats Button -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="60dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:elevation="8dp"
+                    android:outlineProvider="bounds"
+                    android:translationZ="8dp"
+                    app:cardCornerRadius="8dp">
+
+                    <Button
+                        android:id="@+id/my_chats"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:background="@drawable/rounded_rectangle"
+                        android:drawableEnd="@drawable/ic_drop_down"
+                        android:text="My Chats"
+                        android:textColor="@color/textcolor"
+                        android:textSize="12sp" />
+
+                </androidx.cardview.widget.CardView>
+
+                <!-- Filter Button -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:elevation="0dp"
+                    app:cardCornerRadius="8dp">
+
+                    <TextView
+                        android:id="@+id/status_indicator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:background="@color/filtercolor"
+                        android:drawableLeft="@drawable/filtericon"
+                        android:fontFamily="@font/urbanist_variable"
+                        android:gravity="center_vertical"
+                        android:padding="12dp"
+                        android:text=" Filter"
+                        android:textAlignment="center"
+                        android:textColor="@color/textcolor"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </androidx.cardview.widget.CardView>
+
+                <!-- New Chat Button -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="4dp"
+                    android:backgroundTint="@color/textcolor"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    app:cardCornerRadius="8dp">
+
+                    <Button
+                        android:id="@+id/new_chat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:background="@drawable/rounded_rectangle"
+                        android:padding="8dp"
+                        android:text="+ New"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/top_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/white"
+            android:elevation="5dp"
+            app:cardCornerRadius="8dp">
+
+            <!-- Search Bar -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="8dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="6dp"
+                    android:src="@drawable/ic_search"
+                    android:tint="@color/black" />
+
+                <EditText
+                    android:id="@+id/search_field"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:background="@android:color/transparent"
+                    android:hint="Search"
+                    android:padding="8dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <!-- Chat Cards -->
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Individual Chat Card -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@color/white"
+                    android:elevation="5dp"
+                    android:padding="16dp"
+                    app:cardCornerRadius="8dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:padding="16dp">
+
+                        <!-- Profile Image -->
+                        <ImageView
+                            android:id="@+id/chat_profile_pic"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_alignParentStart="true"
+                            android:background="@drawable/profile_circle"
+                            android:src="@drawable/profile_picture" />
+
+                        <!-- Customer Name -->
+                        <TextView
+                            android:id="@+id/customer_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_toEndOf="@id/chat_profile_pic"
+                            android:fontFamily="@font/urbanist_variable"
+                            android:text="Customer Name"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <!-- Last Message Preview -->
+                        <TextView
+                            android:id="@+id/last_message_preview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/customer_name"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_toEndOf="@id/chat_profile_pic"
+                            android:fontFamily="@font/urbanist_variable"
+                            android:text="Last Message preview will be..."
+                            android:textColor="@color/white8"
+                            android:textSize="14sp" />
+
+                        <!-- Status Indicator CardView inside FrameLayout -->
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/last_message_preview"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_toEndOf="@id/chat_profile_pic">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:background="?attr/selectableItemBackground"
+                                android:clipChildren="false"
+                                android:clipToPadding="false"
+                                android:elevation="8dp"
+                                app:cardElevation="4dp"
+                                app:cardCornerRadius="8dp">
+
+                                <TextView
+                                    android:id="@+id/status_indicator"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/rounded_rectangle"
+                                    android:drawableLeft="@drawable/opened_circle"
+                                    android:fontFamily="@font/urbanist_variable"
+                                    android:gravity="center_vertical"
+                                    android:paddingLeft="4dp"
+                                    android:paddingTop="2dp"
+                                    android:paddingRight="4dp"
+                                    android:paddingBottom="2dp"
+                                    android:text=" Opened"
+                                    android:textColor="@color/black"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+                            </androidx.cardview.widget.CardView>
+
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:id="@+id/contact_dot"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentEnd="true">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:clipChildren="false"
+                                android:clipToPadding="false"
+                                android:elevation="8dp"
+                                android:translationZ="5dp"
+                                app:cardCornerRadius="40dp">
+
+                                <FrameLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/circular_shape"
+                                    android:padding="8dp">
+
+                                    <!-- Image inside the circle -->
+                                    <ImageView
+                                        android:id="@+id/contact_action"
+                                        android:layout_width="10dp"
+                                        android:layout_height="10dp"
+                                        android:layout_gravity="center"
+                                        android:src="@drawable/indicator_dot" />
+                                </FrameLayout>
+
+                            </androidx.cardview.widget.CardView>
+
+                        </FrameLayout>
+
+
+                        <FrameLayout
+                            android:id="@+id/three"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/contact_dot"
+                            android:layout_alignParentEnd="true">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:clipChildren="false"
+                                android:clipToPadding="false"
+                                android:elevation="8dp"
+                                android:translationZ="5dp"
+                                app:cardCornerRadius="40dp">
+
+                                <FrameLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/circular_shape"
+                                    android:padding="8dp">
+
+                                    <!-- Image inside the circle -->
+                                    <ImageView
+                                        android:id="@+id/contact_image_time"
+                                        android:layout_width="10dp"
+                                        android:layout_height="10dp"
+                                        android:layout_gravity="center"
+                                        android:src="@drawable/three" />
+                                </FrameLayout>
+
+                            </androidx.cardview.widget.CardView>
+
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/three"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="5dp">
+
+                            <TextView
+                                android:id="@+id/last_message_preview"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="5dp"
+                                android:fontFamily="@font/urbanist_variable"
+                                android:text="3 hrs"
+                                android:textColor="@color/white8"
+                                android:textSize="12sp" />
+
+                        </FrameLayout>
+
+
+                    </RelativeLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <!-- Individual Chat Card -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@color/white"
+                    android:elevation="5dp"
+                    android:padding="16dp"
+                    app:cardCornerRadius="8dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:padding="16dp">
+
+                        <!-- Profile Image -->
+                        <ImageView
+                            android:id="@+id/chat_profile_pic"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_alignParentStart="true"
+                            android:background="@drawable/profile_circle"
+                            android:src="@drawable/profile_picture" />
+
+                        <!-- Customer Name -->
+                        <TextView
+                            android:id="@+id/customer_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_toEndOf="@id/chat_profile_pic"
+                            android:fontFamily="@font/urbanist_variable"
+                            android:text="Customer Name"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <!-- Last Message Preview -->
+                        <TextView
+                            android:id="@+id/last_message_preview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/customer_name"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_toEndOf="@id/chat_profile_pic"
+                            android:fontFamily="@font/urbanist_variable"
+                            android:text="Last Message preview will be..."
+                            android:textColor="@color/white8"
+                            android:textSize="14sp" />
+
+                        <!-- Status Indicator CardView inside FrameLayout -->
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/last_message_preview"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_toEndOf="@id/chat_profile_pic">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:background="?attr/selectableItemBackground"
+                                android:clipChildren="false"
+                                android:clipToPadding="false"
+                                android:elevation="8dp"
+                                app:cardElevation="4dp"
+                                app:cardCornerRadius="8dp">
+
+                                <TextView
+                                    android:id="@+id/status_indicator"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/rounded_rectangle"
+                                    android:drawableLeft="@drawable/opened_circle"
+                                    android:fontFamily="@font/urbanist_variable"
+                                    android:gravity="center_vertical"
+                                    android:paddingLeft="4dp"
+                                    android:paddingTop="2dp"
+                                    android:paddingRight="4dp"
+                                    android:paddingBottom="2dp"
+                                    android:text=" Opened"
+                                    android:textColor="@color/black"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+                            </androidx.cardview.widget.CardView>
+
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:id="@+id/contact_dot"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentEnd="true">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:clipChildren="false"
+                                android:clipToPadding="false"
+                                android:elevation="8dp"
+                                android:translationZ="5dp"
+                                app:cardCornerRadius="40dp">
+
+                                <FrameLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/circular_shape"
+                                    android:padding="8dp">
+
+                                    <!-- Image inside the circle -->
+                                    <ImageView
+                                        android:id="@+id/contact_action"
+                                        android:layout_width="10dp"
+                                        android:layout_height="10dp"
+                                        android:layout_gravity="center"
+                                        android:src="@drawable/indicator_dot" />
+                                </FrameLayout>
+
+                            </androidx.cardview.widget.CardView>
+
+                        </FrameLayout>
+
+
+                        <FrameLayout
+                            android:id="@+id/three"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/contact_dot"
+                            android:layout_alignParentEnd="true">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:clipChildren="false"
+                                android:clipToPadding="false"
+                                android:elevation="8dp"
+                                android:translationZ="5dp"
+                                app:cardCornerRadius="40dp">
+
+                                <FrameLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/circular_shape"
+                                    android:padding="8dp">
+
+                                    <!-- Image inside the circle -->
+                                    <ImageView
+                                        android:id="@+id/contact_image_time"
+                                        android:layout_width="10dp"
+                                        android:layout_height="10dp"
+                                        android:layout_gravity="center"
+                                        android:src="@drawable/three" />
+                                </FrameLayout>
+
+                            </androidx.cardview.widget.CardView>
+
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/three"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="5dp">
+
+                            <TextView
+                                android:id="@+id/last_message_preview"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="5dp"
+                                android:fontFamily="@font/urbanist_variable"
+                                android:text="3 hrs"
+                                android:textColor="@color/white8"
+                                android:textSize="12sp" />
+
+                        </FrameLayout>
+
+
+                    </RelativeLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <!-- Individual Chat Card -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@color/white"
+                    android:elevation="5dp"
+                    android:padding="16dp"
+                    app:cardCornerRadius="8dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:padding="16dp">
+
+                        <!-- Profile Image -->
+                        <ImageView
+                            android:id="@+id/chat_profile_pic"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_alignParentStart="true"
+                            android:background="@drawable/profile_circle"
+                            android:src="@drawable/profile_picture" />
+
+                        <!-- Customer Name -->
+                        <TextView
+                            android:id="@+id/customer_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_toEndOf="@id/chat_profile_pic"
+                            android:fontFamily="@font/urbanist_variable"
+                            android:text="Customer Name"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <!-- Last Message Preview -->
+                        <TextView
+                            android:id="@+id/last_message_preview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/customer_name"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_toEndOf="@id/chat_profile_pic"
+                            android:fontFamily="@font/urbanist_variable"
+                            android:text="Last Message preview will be..."
+                            android:textColor="@color/white8"
+                            android:textSize="14sp" />
+
+                        <!-- Status Indicator CardView inside FrameLayout -->
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/last_message_preview"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_toEndOf="@id/chat_profile_pic">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:background="?attr/selectableItemBackground"
+                                android:clipChildren="false"
+                                android:clipToPadding="false"
+                                android:elevation="8dp"
+                                app:cardElevation="4dp"
+                                app:cardCornerRadius="8dp">
+
+                                <TextView
+                                    android:id="@+id/status_indicator"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/rounded_rectangle"
+                                    android:drawableLeft="@drawable/opened_circle"
+                                    android:fontFamily="@font/urbanist_variable"
+                                    android:gravity="center_vertical"
+                                    android:paddingLeft="4dp"
+                                    android:paddingTop="2dp"
+                                    android:paddingRight="4dp"
+                                    android:paddingBottom="2dp"
+                                    android:text=" Opened"
+                                    android:textColor="@color/black"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+                            </androidx.cardview.widget.CardView>
+
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:id="@+id/contact_dot"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentEnd="true">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:clipChildren="false"
+                                android:clipToPadding="false"
+                                android:elevation="8dp"
+                                android:translationZ="5dp"
+                                app:cardCornerRadius="40dp">
+
+                                <FrameLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/circular_shape"
+                                    android:padding="8dp">
+
+                                    <!-- Image inside the circle -->
+                                    <ImageView
+                                        android:id="@+id/contact_action"
+                                        android:layout_width="10dp"
+                                        android:layout_height="10dp"
+                                        android:layout_gravity="center"
+                                        android:src="@drawable/indicator_dot" />
+                                </FrameLayout>
+
+                            </androidx.cardview.widget.CardView>
+
+                        </FrameLayout>
+
+
+                        <FrameLayout
+                            android:id="@+id/three"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/contact_dot"
+                            android:layout_alignParentEnd="true">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:clipChildren="false"
+                                android:clipToPadding="false"
+                                android:elevation="8dp"
+                                android:translationZ="5dp"
+                                app:cardCornerRadius="40dp">
+
+                                <FrameLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/circular_shape"
+                                    android:padding="8dp">
+
+                                    <!-- Image inside the circle -->
+                                    <ImageView
+                                        android:id="@+id/contact_image_time"
+                                        android:layout_width="10dp"
+                                        android:layout_height="10dp"
+                                        android:layout_gravity="center"
+                                        android:src="@drawable/three" />
+                                </FrameLayout>
+
+                            </androidx.cardview.widget.CardView>
+
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/three"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="5dp">
+
+                            <TextView
+                                android:id="@+id/last_message_preview"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="5dp"
+                                android:fontFamily="@font/urbanist_variable"
+                                android:text="3 hrs"
+                                android:textColor="@color/white8"
+                                android:textSize="12sp" />
+
+                        </FrameLayout>
+
+
+                    </RelativeLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <!-- Individual Chat Card -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@color/white"
+                    android:elevation="5dp"
+                    android:padding="16dp"
+                    app:cardCornerRadius="8dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:padding="16dp">
+
+                        <!-- Profile Image -->
+                        <ImageView
+                            android:id="@+id/chat_profile_pic"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_alignParentStart="true"
+                            android:background="@drawable/profile_circle"
+                            android:src="@drawable/profile_picture" />
+
+                        <!-- Customer Name -->
+                        <TextView
+                            android:id="@+id/customer_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_toEndOf="@id/chat_profile_pic"
+                            android:fontFamily="@font/urbanist_variable"
+                            android:text="Customer Name"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <!-- Last Message Preview -->
+                        <TextView
+                            android:id="@+id/last_message_preview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/customer_name"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_toEndOf="@id/chat_profile_pic"
+                            android:fontFamily="@font/urbanist_variable"
+                            android:text="Last Message preview will be..."
+                            android:textColor="@color/white8"
+                            android:textSize="14sp" />
+
+                        <!-- Status Indicator CardView inside FrameLayout -->
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/last_message_preview"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_toEndOf="@id/chat_profile_pic">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:background="?attr/selectableItemBackground"
+                                android:clipChildren="false"
+                                android:clipToPadding="false"
+                                android:elevation="8dp"
+                                app:cardElevation="4dp"
+                                app:cardCornerRadius="8dp">
+
+                                <TextView
+                                    android:id="@+id/status_indicator"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/rounded_rectangle"
+                                    android:drawableLeft="@drawable/opened_circle"
+                                    android:fontFamily="@font/urbanist_variable"
+                                    android:gravity="center_vertical"
+                                    android:paddingLeft="4dp"
+                                    android:paddingTop="2dp"
+                                    android:paddingRight="4dp"
+                                    android:paddingBottom="2dp"
+                                    android:text=" Opened"
+                                    android:textColor="@color/black"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+                            </androidx.cardview.widget.CardView>
+
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:id="@+id/contact_dot"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentEnd="true">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:clipChildren="false"
+                                android:clipToPadding="false"
+                                android:elevation="8dp"
+                                android:translationZ="5dp"
+                                app:cardCornerRadius="40dp">
+
+                                <FrameLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/circular_shape"
+                                    android:padding="8dp">
+
+                                    <!-- Image inside the circle -->
+                                    <ImageView
+                                        android:id="@+id/contact_action"
+                                        android:layout_width="10dp"
+                                        android:layout_height="10dp"
+                                        android:layout_gravity="center"
+                                        android:src="@drawable/indicator_dot" />
+                                </FrameLayout>
+
+                            </androidx.cardview.widget.CardView>
+
+                        </FrameLayout>
+
+
+                        <FrameLayout
+                            android:id="@+id/three"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/contact_dot"
+                            android:layout_alignParentEnd="true">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:clipChildren="false"
+                                android:clipToPadding="false"
+                                android:elevation="8dp"
+                                android:translationZ="5dp"
+                                app:cardCornerRadius="40dp">
+
+                                <FrameLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/circular_shape"
+                                    android:padding="8dp">
+
+                                    <!-- Image inside the circle -->
+                                    <ImageView
+                                        android:id="@+id/contact_image_time"
+                                        android:layout_width="10dp"
+                                        android:layout_height="10dp"
+                                        android:layout_gravity="center"
+                                        android:src="@drawable/three" />
+                                </FrameLayout>
+
+                            </androidx.cardview.widget.CardView>
+
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/three"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="5dp">
+
+                            <TextView
+                                android:id="@+id/last_message_preview"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="5dp"
+                                android:fontFamily="@font/urbanist_variable"
+                                android:text="3 hrs"
+                                android:textColor="@color/white8"
+                                android:textSize="12sp" />
+
+                        </FrameLayout>
+
+
+                    </RelativeLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <!-- Individual Chat Card -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@color/white"
+                    android:elevation="5dp"
+                    android:padding="16dp"
+                    app:cardCornerRadius="8dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:padding="16dp">
+
+                        <!-- Profile Image -->
+                        <ImageView
+                            android:id="@+id/chat_profile_pic"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_alignParentStart="true"
+                            android:background="@drawable/profile_circle"
+                            android:src="@drawable/profile_picture" />
+
+                        <!-- Customer Name -->
+                        <TextView
+                            android:id="@+id/customer_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_toEndOf="@id/chat_profile_pic"
+                            android:fontFamily="@font/urbanist_variable"
+                            android:text="Customer Name"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <!-- Last Message Preview -->
+                        <TextView
+                            android:id="@+id/last_message_preview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/customer_name"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_toEndOf="@id/chat_profile_pic"
+                            android:fontFamily="@font/urbanist_variable"
+                            android:text="Last Message preview will be..."
+                            android:textColor="@color/white8"
+                            android:textSize="14sp" />
+
+                        <!-- Status Indicator CardView inside FrameLayout -->
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/last_message_preview"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_toEndOf="@id/chat_profile_pic">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:background="?attr/selectableItemBackground"
+                                android:clipChildren="false"
+                                android:clipToPadding="false"
+                                android:elevation="8dp"
+                                app:cardCornerRadius="8dp">
+
+                                <TextView
+                                    android:id="@+id/status_indicator"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/rounded_rectangle"
+                                    android:drawableLeft="@drawable/opened_circle"
+                                    android:fontFamily="@font/urbanist_variable"
+                                    android:gravity="center_vertical"
+                                    android:paddingLeft="4dp"
+                                    android:paddingTop="2dp"
+                                    android:paddingRight="4dp"
+                                    android:paddingBottom="2dp"
+                                    android:text=" Opened"
+                                    android:textColor="@color/black"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+                            </androidx.cardview.widget.CardView>
+
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:id="@+id/contact_dot"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentEnd="true">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:clipChildren="false"
+                                android:clipToPadding="false"
+                                android:elevation="8dp"
+                                android:translationZ="5dp"
+                                app:cardCornerRadius="40dp">
+
+                                <FrameLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/circular_shape"
+                                    android:padding="8dp">
+
+                                    <!-- Image inside the circle -->
+                                    <ImageView
+                                        android:id="@+id/contact_action"
+                                        android:layout_width="10dp"
+                                        android:layout_height="10dp"
+                                        android:layout_gravity="center"
+                                        android:src="@drawable/indicator_dot" />
+                                </FrameLayout>
+
+                            </androidx.cardview.widget.CardView>
+
+                        </FrameLayout>
+
+
+                        <FrameLayout
+                            android:id="@+id/three"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/contact_dot"
+                            android:layout_alignParentEnd="true">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:clipChildren="false"
+                                android:clipToPadding="false"
+                                android:elevation="8dp"
+                                android:translationZ="5dp"
+                                app:cardCornerRadius="40dp">
+
+                                <FrameLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/circular_shape"
+                                    android:padding="8dp">
+
+                                    <!-- Image inside the circle -->
+                                    <ImageView
+                                        android:id="@+id/contact_image_time"
+                                        android:layout_width="10dp"
+                                        android:layout_height="10dp"
+                                        android:layout_gravity="center"
+                                        android:src="@drawable/three" />
+                                </FrameLayout>
+
+                            </androidx.cardview.widget.CardView>
+
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/three"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="5dp">
+
+                            <TextView
+                                android:id="@+id/last_message_preview"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="5dp"
+                                android:fontFamily="@font/urbanist_variable"
+                                android:text="3 hrs"
+                                android:textColor="@color/white8"
+                                android:textSize="12sp" />
+
+                        </FrameLayout>
+
+
+                    </RelativeLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+
+                <!-- Repeat the CardView block for each chat card -->
+            </LinearLayout>
+
+        </ScrollView>
+
+
+    </LinearLayout>
+</ScrollView>

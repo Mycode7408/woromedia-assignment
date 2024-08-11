@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/dashboardFragment">
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.mahmood.woro.DashboardFragment"
+        android:label="Dashboard" />
+
+    <fragment
+        android:id="@+id/inboxFragment"
+        android:name="com.mahmood.woro.Inbox"
+        android:label="Inbox" />
+
+    <fragment
+        android:id="@+id/mediaLibraryFragment"
+        android:name="com.mahmood.woro.MediaLibrary"
+        android:label="Media Library" />
+
+
+</navigation>
